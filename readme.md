@@ -156,10 +156,9 @@
 
 ## Chương 14: Tối ưu UX và hiệu suất cho website
 
-1. Giảm thiểu re-render với useMemo và useCallback
-2. Giảm kích thước js với lazy loading
-3. Tối ưu path với class
-4. Cải thiện UX với global loading
+1. Giảm kích thước js với lazy loading
+2. Tối ưu path với class
+3. Cải thiện UX với global loading
 
 ## Chương 15: Bonus
 
