@@ -22,14 +22,18 @@ Prettier: End Of Line thành auto
 
 "endOfLine": "crlf"
 
-### 3. Vào .eslintrc
-
-"endOfLine": "auto"
-
-### 4. Mở terminal lên
+### 3. Mở terminal lên
 
 yarn prettier:fix
 
-### 5. Đổi "endOfLine": "auto" trong .prettierrc
+### 4. Vào .eslintrc
+
+"endOfLine": "auto"
+
+### 5. Vào .prettierrc
+
+"endOfLine": "auto"
 
 ### 6. Nếu có file nào còn dạng LF thì chuyển sang CRLF Editor
+
+## 7. push code lên git
