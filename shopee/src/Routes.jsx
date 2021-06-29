@@ -6,7 +6,7 @@ import MainLayout from './layouts/MainLayout/MainLayout'
 import UnauthenticatedGuard from './guards/UnauthenticatedGuard'
 import AuthenticatedGuard from './guards/AuthenticatedGuard'
 import CartLayout from './layouts/CartLayout/CartLayout'
-import Loading from './components/Loading/Loading'
+import Fallback from './components/Fallback/Fallback'
 
 const Home = lazy(() => import('./pages/Home/Home'))
 const ProductDetail = lazy(() => import('./pages/ProductDetail/ProductDetail'))
@@ -21,14 +21,14 @@ export default function Routes() {
     <Switch>
       <Route path={path.home} exact>
         <MainLayout>
-          <Suspense fallback={<Loading />}>
+          <Suspense fallback={<Fallback />}>
             <Home />
           </Suspense>
         </MainLayout>
       </Route>
       <Route path={path.productDetail} exact>
         <MainLayout>
-          <Suspense fallback={<Loading />}>
+          <Suspense fallback={<Fallback />}>
             <ProductDetail />
           </Suspense>
         </MainLayout>
@@ -36,7 +36,7 @@ export default function Routes() {
       <Route path={path.login}>
         <UnauthenticatedGuard>
           <RegisterLayout title="Đăng nhập">
-            <Suspense fallback={<Loading />}>
+            <Suspense fallback={<Fallback />}>
               <Login />
             </Suspense>
           </RegisterLayout>
@@ -45,7 +45,7 @@ export default function Routes() {
       <Route path={path.register}>
         <UnauthenticatedGuard>
           <RegisterLayout title="Đăng ký">
-            <Suspense fallback={<Loading />}>
+            <Suspense fallback={<Fallback />}>
               <Register />
             </Suspense>
           </RegisterLayout>
@@ -54,7 +54,7 @@ export default function Routes() {
       <Route path={path.user}>
         <AuthenticatedGuard>
           <MainLayout>
-            <Suspense fallback={<Loading />}>
+            <Suspense fallback={<Fallback />}>
               <User />
             </Suspense>
           </MainLayout>
@@ -63,14 +63,14 @@ export default function Routes() {
       <Route path={path.cart}>
         <AuthenticatedGuard>
           <CartLayout>
-            <Suspense fallback={<Loading />}>
+            <Suspense fallback={<Fallback />}>
               <Cart />
             </Suspense>
           </CartLayout>
         </AuthenticatedGuard>
       </Route>
       <Route path={path.notFound}>
-        <Suspense fallback={<Loading />}>
+        <Suspense fallback={<Fallback />}>
           <NotFound />
         </Suspense>
       </Route>
