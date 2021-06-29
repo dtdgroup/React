@@ -98,7 +98,7 @@ export default function Login() {
             </S.FormButton>
           </S.Form>
           <S.FormFooter>
-            <span>Bạn mới biết đến Shopee?</span>
+            <span>Bạn mới biết đến MyShop?</span>
             <Link to={path.register} className="link">
               Đăng ký
             </Link>

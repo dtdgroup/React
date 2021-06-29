@@ -60,7 +60,7 @@ export default function Home() {
     <div>
       <Helmet>
         <title>
-          Shopee Việt Nam | Mua và Bán trên ứng dụng di động hoặc website
+          MyShop Việt Nam | Mua và Bán trên ứng dụng di động hoặc website
         </title>
       </Helmet>
       <S.Container className="container">
