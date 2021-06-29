@@ -29,7 +29,6 @@ Xóa dòng "endOfLine": "lf", để không thông báo về endOfLine nữa
 ### 4. Mở terminal lên
 
 yarn prettier:fix
-yarn lint:fix
 
 ### 5. Xóa "endOfLine": "crlf" trong .prettierrc
 
