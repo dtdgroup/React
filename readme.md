@@ -166,5 +166,6 @@
 1. Đa ngôn ngữ trong React
 2. Cải thiện title cho React với React healmet
 3. Thay đổi màu sắc và logo project
+4. Sử dụng ErrorBoundary để hạn chế crash app
 
 ## Chương 16: Tạo React với webpack
