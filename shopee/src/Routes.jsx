@@ -7,6 +7,7 @@ import UnauthenticatedGuard from './guards/UnauthenticatedGuard'
 import AuthenticatedGuard from './guards/AuthenticatedGuard'
 import CartLayout from './layouts/CartLayout/CartLayout'
 import Fallback from './components/Fallback/Fallback'
+import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary'
 
 const Home = lazy(() => import('./pages/Home/Home'))
 const ProductDetail = lazy(() => import('./pages/ProductDetail/ProductDetail'))
@@ -22,14 +23,18 @@ export default function Routes() {
       <Route path={path.home} exact>
         <MainLayout>
           <Suspense fallback={<Fallback />}>
-            <Home />
+            <ErrorBoundary>
+              <Home />
+            </ErrorBoundary>
           </Suspense>
         </MainLayout>
       </Route>
       <Route path={path.productDetail} exact>
         <MainLayout>
           <Suspense fallback={<Fallback />}>
-            <ProductDetail />
+            <ErrorBoundary>
+              <ProductDetail />
+            </ErrorBoundary>
           </Suspense>
         </MainLayout>
       </Route>
@@ -37,7 +42,9 @@ export default function Routes() {
         <UnauthenticatedGuard>
           <RegisterLayout title="Đăng nhập">
             <Suspense fallback={<Fallback />}>
-              <Login />
+              <ErrorBoundary>
+                <Login />
+              </ErrorBoundary>
             </Suspense>
           </RegisterLayout>
         </UnauthenticatedGuard>
@@ -46,7 +53,9 @@ export default function Routes() {
         <UnauthenticatedGuard>
           <RegisterLayout title="Đăng ký">
             <Suspense fallback={<Fallback />}>
-              <Register />
+              <ErrorBoundary>
+                <Register />
+              </ErrorBoundary>
             </Suspense>
           </RegisterLayout>
         </UnauthenticatedGuard>
@@ -55,7 +64,9 @@ export default function Routes() {
         <AuthenticatedGuard>
           <MainLayout>
             <Suspense fallback={<Fallback />}>
-              <User />
+              <ErrorBoundary>
+                <User />
+              </ErrorBoundary>
             </Suspense>
           </MainLayout>
         </AuthenticatedGuard>
@@ -64,14 +75,18 @@ export default function Routes() {
         <AuthenticatedGuard>
           <CartLayout>
             <Suspense fallback={<Fallback />}>
-              <Cart />
+              <ErrorBoundary>
+                <Cart />
+              </ErrorBoundary>
             </Suspense>
           </CartLayout>
         </AuthenticatedGuard>
       </Route>
       <Route path={path.notFound}>
         <Suspense fallback={<Fallback />}>
-          <NotFound />
+          <ErrorBoundary>
+            <NotFound />
+          </ErrorBoundary>
         </Suspense>
       </Route>
     </Switch>
