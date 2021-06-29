@@ -92,6 +92,7 @@
 ## Clone Shopee trang đăng ký & đăng nhập
 
 1. Khởi tạo Project, Setup Prettier, ESLint, jsconfig.json
+   1.5 Fix lỗi warning: LF will be replaced by CRLF
 2. Cài một số package cần thiết. Setup CSS global và fonts
 3. Setup Redux và Router
 4. Code giao diện RegisterLayout, Footer, HeaderRegister
