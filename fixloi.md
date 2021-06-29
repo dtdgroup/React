@@ -16,7 +16,7 @@
 ### 1. Vào setting gõ 'eol'
 
 Files: eol thành auto (mặc định)
-Prettier: End Of Line thành lf (mặc định)
+Prettier: End Of Line thành auto
 
 ### 2. Vào .prettierrc
 
@@ -24,12 +24,12 @@ Prettier: End Of Line thành lf (mặc định)
 
 ### 3. Vào .eslintrc
 
-Xóa dòng "endOfLine": "lf", để không thông báo về endOfLine nữa
+"endOfLine": "auto"
 
 ### 4. Mở terminal lên
 
 yarn prettier:fix
 
-### 5. Xóa "endOfLine": "crlf" trong .prettierrc
+### 5. Đổi "endOfLine": "auto" trong .prettierrc
 
 ### 6. Nếu có file nào còn dạng LF thì chuyển sang CRLF Editor
