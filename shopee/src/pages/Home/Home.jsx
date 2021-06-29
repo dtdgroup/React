@@ -2,6 +2,7 @@ import { unwrapResult } from '@reduxjs/toolkit'
 import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
+import { Helmet } from 'react-helmet-async'
 import { useDispatch } from 'react-redux'
 import FilterPanel from 'src/components/FilterPanel/FilterPanel'
 import SearchItemResult from 'src/components/SearchItemResult/SearchItemResult'
@@ -57,6 +58,11 @@ export default function Home() {
 
   return (
     <div>
+      <Helmet>
+        <title>
+          Shopee Việt Nam | Mua và Bán trên ứng dụng di động hoặc website
+        </title>
+      </Helmet>
       <S.Container className="container">
         <S.Side>
           <FilterPanel categories={categories} filters={filters} />

@@ -1,5 +1,6 @@
 import { unwrapResult } from '@reduxjs/toolkit'
 import React from 'react'
+import { Helmet } from 'react-helmet-async'
 import { useForm, Controller } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom'
@@ -53,6 +54,9 @@ export default function Register() {
 
   return (
     <S.StyledRegister>
+      <Helmet>
+        <title>Đăng ký</title>
+      </Helmet>
       <S.Container className="container">
         <S.Banner />
         <S.FormWrapper>

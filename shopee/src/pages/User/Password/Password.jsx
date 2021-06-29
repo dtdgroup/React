@@ -9,6 +9,7 @@ import ErrorMessage from 'src/components/ErrorMessage/ErrorMessage'
 import { updateMe } from 'src/pages/Auth/auth.slice'
 import { unwrapResult } from '@reduxjs/toolkit'
 import { toast } from 'react-toastify'
+import { Helmet } from 'react-helmet-async'
 
 export default function Password() {
   const {
@@ -50,6 +51,9 @@ export default function Password() {
 
   return (
     <S.Profile>
+      <Helmet>
+        <title>Đổi mật khẩu</title>
+      </Helmet>
       <S.ProfileHeader>
         <S.ProfileHeaderTitle>Đổi mật khẩu</S.ProfileHeaderTitle>
         <S.ProfileHeaderSubtitle>

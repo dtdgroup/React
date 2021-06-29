@@ -1,6 +1,7 @@
 import { unwrapResult } from '@reduxjs/toolkit'
 import DOMPurify from 'dompurify'
 import React, { useEffect, useMemo, useState } from 'react'
+import { Helmet } from 'react-helmet-async'
 import { useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
@@ -87,6 +88,9 @@ export default function ProductDetail() {
     <div>
       {product && (
         <div className="container">
+          <Helmet>
+            <title>{product.name}</title>
+          </Helmet>
           <S.ProductBriefing>
             <S.ProductImages>
               <S.ProductImageActive>
