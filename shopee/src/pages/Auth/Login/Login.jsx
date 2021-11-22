@@ -8,7 +8,7 @@ import { path } from 'src/constants/path'
 import { rules } from 'src/constants/rules'
 import { Button } from 'src/assets/styles/utils'
 import { useDispatch } from 'react-redux'
-import { useHistory, Link } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { login } from '../auth.slice'
 import { unwrapResult } from '@reduxjs/toolkit'
 import { Helmet } from 'react-helmet-async'
@@ -27,7 +27,7 @@ export default function Login() {
     }
   })
   const dispatch = useDispatch()
-  const history = useHistory()
+  const navigate = useNavigate()
 
   const handleLogin = async data => {
     const body = {
@@ -37,7 +37,7 @@ export default function Login() {
     try {
       const res = await dispatch(login(body))
       unwrapResult(res)
-      history.push(path.home)
+      navigate(path.home)
     } catch (error) {
       if (error.status === 422) {
         for (const key in error.data) {

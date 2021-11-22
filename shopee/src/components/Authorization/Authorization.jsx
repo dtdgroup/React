@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { unauthorize } from 'src/pages/Auth/auth.slice'
 import { path } from 'src/constants/path'
 import { useAuthenticated } from 'src/hooks/useAuthenticated'
@@ -9,15 +9,15 @@ import { getCartPurchases } from 'src/pages/Cart/cart.slice'
 export default function Authorization() {
   const status = useSelector(state => state.app.status)
   const dispatch = useDispatch()
-  const history = useHistory()
+  const navigate = useNavigate()
   const authenticated = useAuthenticated()
 
   useEffect(() => {
     if (status === 401) {
       dispatch(unauthorize())
-      history.push(path.login)
+      navigate(path.login)
     }
-  }, [dispatch, status, history])
+  }, [dispatch, status, navigate])
 
   useEffect(() => {
     if (authenticated) {

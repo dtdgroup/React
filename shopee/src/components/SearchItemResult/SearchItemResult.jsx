@@ -3,13 +3,13 @@ import Pagination from '../Pagination/Pagination'
 import ProductItem from '../ProductItem/ProductItem'
 import * as S from './searchItemResult.style'
 import PropTypes from 'prop-types'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { path } from 'src/constants/path'
 import qs from 'query-string'
 import classNames from 'classnames'
 export default function SearchItemResult({ products, filters }) {
   const { products: productList, pagination } = products
-  const history = useHistory()
+  const navigate = useNavigate()
   const sortBy = (sortBy, order) => {
     const _filters = { ...filters, sortBy }
     if (order) {
@@ -17,7 +17,7 @@ export default function SearchItemResult({ products, filters }) {
     } else {
       delete _filters.order
     }
-    history.push(path.home + `?${qs.stringify(_filters)}`)
+    navigate(path.home + `?${qs.stringify(_filters)}`)
   }
 
   const handleActiveOptionSort = value =>
@@ -34,14 +34,14 @@ export default function SearchItemResult({ products, filters }) {
   const goToPrev = () => {
     if (pagination.page !== 1) {
       const _filters = { ...filters, page: pagination.page - 1 }
-      history.push(path.home + `?${qs.stringify(_filters)}`)
+      navigate(path.home + `?${qs.stringify(_filters)}`)
     }
   }
 
   const goToNext = () => {
     if (pagination.page !== pagination.page_size) {
       const _filters = { ...filters, page: pagination.page + 1 }
-      history.push(path.home + `?${qs.stringify(_filters)}`)
+      navigate(path.home + `?${qs.stringify(_filters)}`)
     }
   }
 

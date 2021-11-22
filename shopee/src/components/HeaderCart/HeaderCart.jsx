@@ -2,17 +2,17 @@ import React, { useState } from 'react'
 import * as S from './headerCart.style'
 import Navbar from 'src/components/Navbar/Navbar'
 import { path } from 'src/constants/path'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 export default function HeaderCart() {
   const [searchValue, setSearchValue] = useState('')
-  const history = useHistory()
+  const navigate = useNavigate()
 
   const search = event => {
     event.preventDefault()
     const _value = searchValue.trim()
     if (_value !== '') {
-      history.push(path.home + `?name=${searchValue}`)
+      navigate(path.home + `?name=${searchValue}`)
     }
   }
 

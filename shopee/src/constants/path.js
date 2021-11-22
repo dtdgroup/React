@@ -27,9 +27,9 @@ class Path {
     this.productDetail = '/product/:idProduct'
     this.cart = '/cart'
     this.user = '/user'
-    this.profile = this.user + '/profile'
-    this.password = this.user + '/password'
-    this.purchase = this.user + '/purchase'
+    this.profile = '/profile'
+    this.password = '/password'
+    this.purchase = '/purchase'
     this.notFound = '*'
   }
 }

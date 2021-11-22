@@ -3,7 +3,7 @@ import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useForm, Controller } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
-import { Link, useHistory } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Button } from 'src/assets/styles/utils'
 import ErrorMessage from 'src/components/ErrorMessage/ErrorMessage'
 import InputPassword from 'src/components/InputPassword/InputPassword'
@@ -29,7 +29,7 @@ export default function Register() {
   })
 
   const dispatch = useDispatch()
-  const history = useHistory()
+  const navigate = useNavigate()
 
   const handleRegister = async data => {
     const body = {
@@ -39,7 +39,7 @@ export default function Register() {
     try {
       const res = await dispatch(register(body))
       unwrapResult(res)
-      history.push(path.home)
+      navigate(path.home)
     } catch (error) {
       if (error.status === 422) {
         for (const key in error.data) {

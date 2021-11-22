@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { path } from 'src/constants/path'
 import usePopover from 'src/hooks/usePopover'
 import useQuery from 'src/hooks/useQuery'
@@ -12,7 +12,7 @@ import * as S from './header.style'
 export default function Header() {
   const { activePopover, hidePopover, showPopover } = usePopover()
   const [searchValue, setSearchValue] = useState('')
-  const history = useHistory()
+  const navigate = useNavigate()
   const query = useQuery()
   const purchases = useSelector(state => state.cart.purchases)
 
@@ -27,7 +27,7 @@ export default function Header() {
 
   const search = event => {
     event.preventDefault()
-    history.push(path.home + `?name=${searchValue}`)
+    navigate(path.home + `?name=${searchValue}`)
   }
 
   return (

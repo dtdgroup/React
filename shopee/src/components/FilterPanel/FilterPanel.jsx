@@ -1,6 +1,6 @@
 import React from 'react'
 import { path } from 'src/constants/path'
-import { NavLink, useHistory } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import RatingStars from '../RatingStars/RatingStars'
 import * as S from './filterPanel.style'
 import PropTypes from 'prop-types'
@@ -8,7 +8,7 @@ import qs from 'query-string'
 import { Controller, useForm } from 'react-hook-form'
 import { useEffect } from 'react'
 export default function FilterPanel({ categories, filters }) {
-  const history = useHistory()
+  const navigate = useNavigate()
   const {
     control,
     handleSubmit,
@@ -44,7 +44,7 @@ export default function FilterPanel({ categories, filters }) {
       } else {
         delete _filters.maxPrice
       }
-      history.push(path.home + `?${qs.stringify(_filters)}`)
+      navigate(path.home + `?${qs.stringify(_filters)}`)
     }
   }
 
@@ -60,7 +60,7 @@ export default function FilterPanel({ categories, filters }) {
 
   const clearAll = () => {
     reset()
-    history.push({
+    navigate({
       pathname: path.home
     })
   }
