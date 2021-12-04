@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { ButtonLink } from 'src/assets/styles/utils'
 import styled from 'styled-components'
 
@@ -11,7 +11,7 @@ export const PurchaseTabs = styled.div`
   border-top-right-radius: 2px;
   margin-bottom: 1.2rem;
 `
-export const PurchaseTabItem = styled(NavLink)`
+export const PurchaseTabItem = styled(Link)`
   display: block;
   font-size: 1.4rem;
   padding: 1.7rem 0;

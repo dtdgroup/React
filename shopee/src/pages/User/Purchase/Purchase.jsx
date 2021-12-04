@@ -24,7 +24,7 @@ export default function Purchase() {
       })
   }, [status, dispatch])
 
-  const handleActive = value => () => Number(value) === Number(status)
+  const handleActive = value => Number(value) === Number(status)
 
   return (
     <div>
@@ -33,63 +33,67 @@ export default function Purchase() {
       </Helmet>
       <S.PurchaseTabs>
         <S.PurchaseTabItem
-          to={path.purchase}
-          isActive={handleActive(purchaseStatus.all)}
+          to={path.user + path.purchase}
+          className={handleActive(purchaseStatus.all) ? 'active' : ''}
         >
           Tất cả
         </S.PurchaseTabItem>
         <S.PurchaseTabItem
           to={{
-            pathname: path.purchase,
+            pathname: path.user + path.purchase,
             search: `?${qs.stringify({
               status: purchaseStatus.waitForConfirmation
             })}`
           }}
-          isActive={handleActive(purchaseStatus.waitForConfirmation)}
+          className={
+            handleActive(purchaseStatus.waitForConfirmation) ? 'active' : ''
+          }
         >
           Chờ xác nhận
         </S.PurchaseTabItem>
         <S.PurchaseTabItem
           to={{
-            pathname: path.purchase,
+            pathname: path.user + path.purchase,
             search: `?${qs.stringify({
               status: purchaseStatus.waitForGetting
             })}`
           }}
-          isActive={handleActive(purchaseStatus.waitForGetting)}
+          className={
+            handleActive(purchaseStatus.waitForGetting) ? 'active' : ''
+          }
         >
           Chờ lấy hàng
         </S.PurchaseTabItem>
         <S.PurchaseTabItem
           to={{
-            pathname: path.purchase,
+            pathname: path.user + path.purchase,
             search: `?${qs.stringify({
               status: purchaseStatus.inProgress
             })}`
           }}
-          isActive={handleActive(purchaseStatus.inProgress)}
+          className={handleActive(purchaseStatus.inProgress) ? 'active' : ''}
         >
           Đang giao
         </S.PurchaseTabItem>
         <S.PurchaseTabItem
           to={{
-            pathname: path.purchase,
+            pathname: path.user + path.purchase,
             search: `?${qs.stringify({
               status: purchaseStatus.delivered
             })}`
           }}
-          isActive={handleActive(purchaseStatus.delivered)}
+          className={handleActive(purchaseStatus.delivered) ? 'active' : ''}
         >
           Đã giao
         </S.PurchaseTabItem>
         <S.PurchaseTabItem
           to={{
-            pathname: path.purchase,
+            pathname: path.user + path.purchase,
             search: `?${qs.stringify({
               status: purchaseStatus.cancelled
             })}`
           }}
-          isActive={handleActive(purchaseStatus.cancelled)}
+          className={handleActive(purchaseStatus.cancelled) ? 'active' : ''}
         >
           Đã hủy
         </S.PurchaseTabItem>
